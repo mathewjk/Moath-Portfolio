@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moath Hussein — Enterprise Strategy &amp; Transformation Executive</title>
+<meta name="description" content="Executive portfolio of Moath Hussein — Enterprise Strategy & Transformation Executive, Abu Dhabi, UAE.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f3f0;
+    --surface: #fbfaf8;
+    --ink: #141414;
+    --ink-soft: #55524d;
+    --ink-faint: #8a867f;
+    --line: #dcd9d3;
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Inter", -apple-system, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+  /* ---------- Nav ---------- */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav {
+    max-width: 1080px; margin: 0 auto; padding: 20px 32px;
+    display: flex; align-items: center; justify-content: flex-end;
+  }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-soft); text-decoration: none; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.cta {
+    color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 180px 0 100px; position: relative; overflow: hidden; }
+  .hero .overline {
+    font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: var(--serif); font-weight: 400;
+    font-size: clamp(56px, 10vw, 118px);
+    line-height: 1.02; letter-spacing: -0.01em; margin-bottom: 36px;
+  }
+  .hero h1 em { font-style: italic; color: var(--ink-soft); }
+  .hero .lede {
+    max-width: 620px; font-size: 18px; color: var(--ink-soft); margin-bottom: 64px;
+  }
+  .stats { display: flex; gap: 64px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 36px; }
+  .stat .num { font-family: var(--serif); font-size: 44px; line-height: 1; }
+  .stat .num sup { font-size: 22px; }
+  .stat .label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); margin-top: 8px; }
+  /* ---------- Sections ---------- */
+  section { padding: 96px 0; border-top: 1px solid var(--line); }
+  .sec-label {
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 40px;
+  }
+  h2 {
+    font-family: var(--serif); font-weight: 400; font-size: clamp(32px, 4.5vw, 48px);
+    line-height: 1.15; margin-bottom: 32px; letter-spacing: -0.01em;
+  }
+  h2 em { font-style: italic; color: var(--ink-soft); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1.6fr; gap: 64px; }
+  @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; gap: 24px; } }
+
+  .about p { font-size: 17px; color: var(--ink-soft); margin-bottom: 20px; max-width: 640px; }
+
+  /* ---------- Capabilities ---------- */
+  .caps { display: grid; grid-template-columns: 1fr 1fr; column-gap: 96px; }
+  @media (max-width: 800px) { .caps { grid-template-columns: 1fr; } }
+  .cap {
+    display: flex; align-items: baseline; gap: 28px;
+    padding: 30px 0; border-bottom: 1px solid var(--line);
+  }
+  .cap .n { font-family: var(--serif); font-style: italic; color: var(--ink-faint); font-size: 16px; min-width: 34px; }
+  .cap .t { font-size: 17px; font-weight: 400; letter-spacing: .01em; }
+
+  /* ---------- Experience ---------- */
+  .role { display: grid; grid-template-columns: 180px 1fr; gap: 40px; padding: 36px 0; border-bottom: 1px solid var(--line); }
+  .role:last-child { border-bottom: none; }
+  @media (max-width: 800px) { .role { grid-template-columns: 1fr; gap: 8px; } }
+  .role .when { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); padding-top: 6px; }
+  .role h3 { font-size: 19px; font-weight: 500; letter-spacing: -0.01em; }
+  .role .org { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--ink-soft); margin: 2px 0 12px; }
+  .role p { font-size: 15px; color: var(--ink-soft); max-width: 600px; }
+
+  /* ---------- Board / Education ---------- */
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 800px) { .cards { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); padding: 36px 32px; }
+  .card .when { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px; }
+  .card h3 { font-family: var(--serif); font-weight: 400; font-size: 24px; margin-bottom: 8px; }
+  .card p { font-size: 14.5px; color: var(--ink-soft); }
+  /* ---------- Contact ---------- */
+  .contact { text-align: center; padding: 128px 0 96px; }
+  .contact h2 { font-size: clamp(44px, 7vw, 80px); margin-bottom: 24px; }
+  .contact p { color: var(--ink-soft); margin-bottom: 48px; font-size: 17px; }
+  .contact .email {
+    display: inline-block; font-family: var(--serif); font-style: italic;
+    font-size: clamp(22px, 3.5vw, 34px); color: var(--ink);
+    text-decoration: none; border-bottom: 1px solid var(--ink); padding-bottom: 4px;
+    transition: opacity .2s;
+  }
+  .contact .email:hover { opacity: .6; }
+  .contact .meta { margin-top: 48px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .contact .meta a, .contact .meta span {
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-faint); text-decoration: none;
+  }
+  .contact .meta a:hover { color: var(--ink); }
+
+  footer { border-top: 1px solid var(--line); padding: 28px 0; }
+  footer .wrap { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-faint); }
+
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#board">Board</a>
+      <a class="cta" href="#contact">Get in Touch</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <p class="overline">Enterprise Strategy &amp; Transformation Executive — Abu Dhabi, UAE</p>
+      <h1>Moath<br><em>Hussein</em></h1>
+      <p class="lede">Board-level executive driving enterprise growth, operating model transformation, and sustainable shareholder value creation across government, aviation, telecommunications, and mobility.</p>
+      <div class="stats">
+        <div class="stat"><div class="num">25<sup>+</sup></div><div class="label">Years of Leadership</div></div>
+        <div class="stat"><div class="num">6</div><div class="label">Industry Sectors</div></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about" class="about">
+    <div class="wrap two-col">
+      <div><p class="sec-label">01 — About</p></div>
+      <div class="reveal">
+        <h2>Translating strategic vision into <em>measurable outcomes.</em></h2>
+        <p>Enterprise Strategy &amp; Transformation Executive with extensive Board-level experience driving enterprise growth, operating model transformation, governance enhancement, and sustainable shareholder value creation across government, aviation, telecommunications, mobility, and diversified sectors.</p>
+        <p>Proven track record leading large-scale transformation programs focused on revenue acceleration, EBITDA improvement, enterprise optimization, and operational turnaround — building institutional capabilities, strengthening governance frameworks, and enabling IPO readiness.</p>
+        <p>Applies AI, analytics, and data-driven leadership to improve decision intelligence, operational visibility, and long-term value creation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="capabilities">
+    <div class="wrap">
+      <p class="sec-label">02 — Core Capabilities</p>
+      <div class="caps reveal">
+        <div class="cap"><span class="n">i.</span><span class="t">Enterprise Strategy &amp; Transformation</span></div>
+        <div class="cap"><span class="n">ii.</span><span class="t">Operating Model Design &amp; Restructuring</span></div>
+        <div class="cap"><span class="n">iii.</span><span class="t">Revenue Growth &amp; Value Creation</span></div>
+        <div class="cap"><span class="n">iv.</span><span class="t">Governance &amp; Board Engagement</span></div>
+        <div class="cap"><span class="n">v.</span><span class="t">IPO Readiness &amp; Institutionalization</span></div>
+        <div class="cap"><span class="n">vi.</span><span class="t">AI-Enabled, Data-Driven Leadership</span></div>
+        <div class="cap"><span class="n">vii.</span><span class="t">Performance &amp; Productivity Enhancement</span></div>
+        <div class="cap"><span class="n">viii.</span><span class="t">Business Turnaround &amp; Restructuring</span></div>
+        <div class="cap"><span class="n">ix.</span><span class="t">Market Expansion &amp; Growth Strategy</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <p class="sec-label">03 — Professional Experience</p>
+
+      <div class="role reveal">
+        <div class="when">Feb 2025 — Present</div>
+        <div>
+          <h3>Chief Strategy &amp; Transformation</h3>
+          <p>Leading enterprise-wide transformation of a national integrated mobility provider — spanning revenue enhancement, EBITDA improvement, operating model redesign, governance strengthening, and IPO readiness.</p>
+        </div>
+      </div>
+
+      <div class="role reveal">
+        <div class="when">2020 — Jan 2025</div>
+        <div>
+          <h3>Management Advisor &amp; Business Transformation Unit Lead</h3>
+          <div class="org">Statistics Centre Abu Dhabi</div>
+          <p>Led enterprise transformation and governance modernization across government entities; built enterprise data governance and performance management capabilities supporting national decision-making.</p>
+        </div>
+      </div>
+
+      <div class="role reveal">
+        <div class="when">2015 — 2019</div>
+        <div>
+          <h3>Chief Support Services Officer</h3>
+          <div class="org">Al Fahim Group</div>
+          <p>Led enterprise optimization and shared services transformation focused on cost rationalization, operational efficiency, and organizational agility.</p>
+        </div>
+      </div>
+
+      <div class="role reveal">
+        <div class="when">2012 — 2015</div>
+        <div>
+          <h3>Vice President — HR Strategy &amp; Performance</h3>
+          <div class="org">Abu Dhabi Airports</div>
+          <p>Led workforce and organizational transformation supporting airport expansion, operational scalability, and long-term enterprise readiness.</p>
+        </div>
+      </div>
+
+      <div class="role reveal">
+        <div class="when">2010 — 2012</div>
+        <div>
+          <h3>Business Advisor — Transformation Lead</h3>
+          <div class="org">Department of Economic Development Abu Dhabi</div>
+          <p>Directed modernization, culture transformation, and capability development initiatives across the Commercial Affairs Sector.</p>
+        </div>
+      </div>
+
+      <div class="role reveal">
+        <div class="when">2009 — 2010</div>
+        <div>
+          <h3>Director — HR &amp; Administration</h3>
+          <div class="org">C4 Advanced Solutions</div>
+          <p>Designed organizational transformation and shared services programs across multiple joint ventures with international partners.</p>
+        </div>
+      </div>
+
+      <div class="role reveal">
+        <div class="when">1997 — 2009</div>
+        <div>
+          <h3>Leadership Roles — Strategy, Transformation &amp; Expansion</h3>
+          <div class="org">Etisalat</div>
+          <p>Key leadership assignments across Etisalat Group, including CHRO of the Etisalat Nigeria launch, HR Director of the Khalifa University merger, and launch teams for Mobily (Saudi Arabia) and Canar (Sudan) — driving telecom market expansion and enterprise scaling across three countries.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="board">
+    <div class="wrap">
+      <p class="sec-label">04 — Board &amp; Governance</p>
+      <div class="cards reveal">
+        <div class="card">
+          <div class="when">2025 — Present</div>
+          <h3>Confidential</h3>
+          <p>Board Member. Supporting strategic turnaround and enterprise repositioning — operational sustainability, governance strengthening, and long-term shareholder value creation.</p>
+        </div>
+        <div class="card">
+          <div class="when">2010 — 2021</div>
+          <h3>Ajman Holding</h3>
+          <p>Board Member. Contributed to Board-level governance oversight, enterprise strategy, investment discussions, and long-term value creation priorities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Let's <em>connect.</em></h2>
+      <p>Open to Board mandates, advisory engagements, and executive leadership conversations.</p>
+      <a class="email" href="mailto:muathh@gmail.com">muathh@gmail.com</a>
+      <div class="meta">
+        <a href="tel:+971504545479">+971 50 454 5479</a>
+        <a href="https://www.linkedin.com/in/moath/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Abu Dhabi, UAE</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Moath Hussein</span>
+    <span>Enterprise Strategy &amp; Transformation</span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
