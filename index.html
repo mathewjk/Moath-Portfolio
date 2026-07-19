@@ -48,10 +48,14 @@
   .nav-links a {
     font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
     color: var(--ink-soft); text-decoration: none; transition: color .2s;
+    white-space: nowrap; border-bottom: 1px solid transparent; padding-bottom: 2px;
   }
   .nav-links a:hover { color: var(--ink); }
-  .nav-links a.cta {
-    color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 2px;
+  .nav-links a.active { color: var(--ink); border-bottom-color: var(--ink); }
+  @media (max-width: 800px) {
+    nav { padding: 16px 20px; }
+    .nav-links { gap: 14px; }
+    .nav-links a { font-size: 10px; letter-spacing: .08em; }
   }
 
   /* ---------- Hero ---------- */
@@ -60,8 +64,8 @@
   .hero .photo {
     position: absolute; z-index: 0; top: 110px; right: 6%;
     width: 34%; height: 74%;
-    background: url('photo.jpg') center 15% / cover no-repeat;
-    filter: blur(6px) grayscale(25%);
+    background: url('photo.jpg') center 30% / auto 85% no-repeat;
+    filter: blur(5px) grayscale(25%);
     opacity: .8;
     -webkit-mask-image: radial-gradient(ellipse 62% 58% at 50% 45%, black 45%, transparent 80%);
     mask-image: radial-gradient(ellipse 62% 58% at 50% 45%, black 45%, transparent 80%);
@@ -148,8 +152,13 @@
   }
   .contact .meta a:hover { color: var(--ink); }
 
-  footer { border-top: 1px solid var(--line); padding: 28px 0; }
-  footer .wrap { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink-faint); }
+  footer { border-top: 1px solid var(--line); padding: 24px 0; }
+  footer .wrap {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; color: var(--ink-faint); white-space: nowrap;
+  }
+  .mbadge { display: inline-flex; flex-shrink: 0; transition: opacity .2s; }
+  .mbadge:hover { opacity: .7; }
 
   /* ---------- Reveal ---------- */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
@@ -164,7 +173,7 @@
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#board">Board</a>
-      <a class="cta" href="#contact">Get in Touch</a>
+      <a href="#contact">Get in Touch</a>
     </div>
   </nav>
 </header>
@@ -207,8 +216,7 @@
         <div class="cap"><span class="n">v.</span><span class="t">IPO Readiness &amp; Institutionalization</span></div>
         <div class="cap"><span class="n">vi.</span><span class="t">AI-Enabled, Data-Driven Leadership</span></div>
         <div class="cap"><span class="n">vii.</span><span class="t">Performance &amp; Productivity Enhancement</span></div>
-        <div class="cap"><span class="n">viii.</span><span class="t">Business Turnaround &amp; Restructuring</span></div>
-        <div class="cap"><span class="n">ix.</span><span class="t">Market Expansion &amp; Growth Strategy</span></div>
+        <div class="cap"><span class="n">viii.</span><span class="t">Market Expansion &amp; Growth Strategy</span></div>
       </div>
     </div>
   </section>
@@ -318,7 +326,12 @@
 <footer>
   <div class="wrap">
     <span>© 2026 Moath Hussein</span>
-    <span>Enterprise Strategy &amp; Transformation</span>
+    <a class="mbadge" href="https://mathewjk.com" target="_blank" rel="noopener" aria-label="mathewjk.com">
+      <svg width="32" height="32" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="256" cy="256" r="256" fill="#22242C"/>
+        <text x="250" y="335" font-family="Georgia, 'Times New Roman', serif" font-size="310" font-style="italic" font-weight="bold" fill="#FCFCF9" text-anchor="middle">M</text>
+      </svg>
+    </a>
   </div>
 </footer>
 
@@ -327,6 +340,21 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Scrollspy: move the nav underline to the section currently in view
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+  const spyTargets = navLinks.map(a => ({ link: a, sec: document.querySelector(a.getAttribute('href')) }));
+  function updateSpy() {
+    const pos = window.scrollY + window.innerHeight * 0.35;
+    let current = null;
+    for (const t of spyTargets) {
+      if (t.sec && t.sec.offsetTop <= pos) current = t;
+    }
+    navLinks.forEach(a => a.classList.toggle('active', current !== null && a === current.link));
+  }
+  window.addEventListener('scroll', updateSpy, { passive: true });
+  window.addEventListener('resize', updateSpy);
+  updateSpy();
 </script>
 
 </body>
